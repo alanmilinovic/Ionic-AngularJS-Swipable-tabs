@@ -1,0 +1,12 @@
+{
+  "name": "@alanmilinovic/swipeable-tabs",
+  "version": "1.0.4",
+  "description": "Ionic-AngularJS Swipable tabs support.",
+  "dependencies": {
+      "angular": "1.5.x",
+      "angular-ui-router": "0.2.x"
+  },
+  "authors": [
+    "Ben Slimene Souhail <souhailbenslimene@outlook.com>"
+  ]
+}

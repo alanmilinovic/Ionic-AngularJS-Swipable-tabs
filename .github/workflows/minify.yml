@@ -39,6 +39,12 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add tabs-swipable.min.js tabs-swipable.min.css
-          git commit -m 'Automated minification: Update tabs-swipable.min.js and tabs-swipable.min.css'
-          git push origin master
+
+          # Stage only the necessary files
+          git add tabs-swipable.min.js tabs-swipable.min.css package.json
+
+          # Check if there are any changes before committing
+          git diff --cached --quiet || (git commit -m 'Automated minification: Update tabs-swipable.min.js and tabs-swipable.min.css' && git push origin master)
+          
+          # Clean up any untracked files like node_modules and package-lock.json from being staged
+          git clean -fd

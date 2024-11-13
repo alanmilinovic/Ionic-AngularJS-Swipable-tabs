@@ -2,34 +2,38 @@ name: Minify JS and CSS
 
 on:
   push:
-    branches: [master]  # Runs on every push to the master branch
+    branches: 
+      - master  # Trigger this workflow when pushing to the master branch
 
 jobs:
   minify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Runs on the latest Ubuntu environment
 
     steps:
+      # Step 1: Checkout the code
       - name: Check out the code
         uses: actions/checkout@v2
 
+      # Step 2: Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # Specify Node version
+          node-version: '16'  # Set Node.js version
 
-      - name: Install Dependencies
-        run: |
-          npm install  # This installs the dependencies from package.json
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install  # This installs terser and cssnano from package.json
 
-      - name: Minify JavaScript file
-        run: |
-          npm run minify-js  # Run the minification script for JS
+      # Step 4: Minify the JavaScript file
+      - name: Minify JavaScript
+        run: npm run minify-js  # This runs the minify-js script
 
-      - name: Minify CSS file
-        run: |
-          npm run minify-css  # Run the minification script for CSS
+      # Step 5: Minify the CSS file
+      - name: Minify CSS
+        run: npm run minify-css  # This runs the minify-css script
 
-      - name: Commit and Push Minified Files
+      # Step 6: Commit and push minified files back to the repository
+      - name: Commit and push minified files
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'

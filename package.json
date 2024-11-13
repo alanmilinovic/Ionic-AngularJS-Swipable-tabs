@@ -10,7 +10,7 @@
     "terser": "^5.7.1",
     "postcss-cli": "^9.1.0",
     "postcss-minify": "^4.0.0"
-  }
+  },
   "authors": [
     "Ben Slimene Souhail <souhailbenslimene@outlook.com>"
   ]

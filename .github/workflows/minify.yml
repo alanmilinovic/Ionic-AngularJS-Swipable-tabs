@@ -25,7 +25,7 @@ jobs:
       - name: Minify CSS file
         run: |
           # Minify tabs-swipable.css and output as tabs-swipable.min.css
-          npx cssnano tabs-swipable.css tabs-swipable.min.css
+          npx cssnano tabs-swipable.css --output tabs-swipable.min.css
 
       - name: Commit and Push Minified Files
         run: |

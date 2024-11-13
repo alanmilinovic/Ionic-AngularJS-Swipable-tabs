@@ -17,15 +17,17 @@ jobs:
         with:
           node-version: '16'  # Specify Node version
 
+      - name: Install Dependencies
+        run: |
+          npm install  # This installs the dependencies from package.json
+
       - name: Minify JavaScript file
         run: |
-          # Minify tabs-swipable.js and output as tabs-swipable.min.js
-          npx terser tabs-swipable.js --compress --mangle --output tabs-swipable.min.js
+          npm run minify-js  # Run the minification script for JS
 
       - name: Minify CSS file
         run: |
-          # Minify tabs-swipable.css and output as tabs-swipable.min.css
-          npx cssnano tabs-swipable.css --output tabs-swipable.min.css
+          npm run minify-css  # Run the minification script for CSS
 
       - name: Commit and Push Minified Files
         run: |

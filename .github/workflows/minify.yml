@@ -2,7 +2,7 @@ name: Minify JS and CSS
 
 on:
   push:
-    branches: [main]  # Runs on every push to the main branch
+    branches: [master]  # Runs on every push to the main branch
 
 jobs:
   minify:

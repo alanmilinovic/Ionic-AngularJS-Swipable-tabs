@@ -3,8 +3,16 @@
   "version": "1.0.4",
   "description": "Ionic-AngularJS Swipable tabs support.",
   "dependencies": {
-      "angular": "1.5.x",
-      "angular-ui-router": "0.2.x"
+    "angular": "1.5.x",
+    "angular-ui-router": "0.2.x"
+  },
+  "devDependencies": {
+    "terser": "^5.7.1",     // Adds Terser for JS minification
+    "cssnano": "^5.1.10"    // Adds CSSNano for CSS minification
+  },
+  "scripts": {
+    "minify-js": "terser tabs-swipable.js --compress --mangle --output tabs-swipable.min.js",   // Minify JS
+    "minify-css": "cssnano tabs-swipable.css tabs-swipable.min.css"  // Minify CSS
   },
   "authors": [
     "Ben Slimene Souhail <souhailbenslimene@outlook.com>"

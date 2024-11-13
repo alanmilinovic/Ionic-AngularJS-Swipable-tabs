@@ -2,7 +2,7 @@ name: Minify JS and CSS
 
 on:
   push:
-    branches: 
+    branches:
       - master  # Trigger this workflow when pushing to the master branch
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm install  # This installs all dependencies from package.json
-          npm install cssnano terser  # Explicitly install cssnano and terser
+          npm install clean-css-cli terser  # Explicitly install clean-css-cli and terser
 
       # Step 4: Minify the JavaScript file
       - name: Minify JavaScript
@@ -32,7 +32,7 @@ jobs:
 
       # Step 5: Minify the CSS file
       - name: Minify CSS
-        run: npx cssnano tabs-swipable.css --output tabs-swipable.min.css
+        run: npx clean-css-cli -o tabs-swipable.min.css tabs-swipable.css
 
       # Step 6: Commit and push minified files back to the repository
       - name: Commit and push minified files

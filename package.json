@@ -7,12 +7,12 @@
     "angular-ui-router": "0.2.x"
   },
   "devDependencies": {
-    "terser": "^5.7.1",
-    "cssnano": "^5.1.10"
+    "terser": "^5.7.1",     // Terser for JS minification
+    "cssnano": "^5.1.10"    // CSSNano for CSS minification
   },
   "scripts": {
-    "minify-js": "terser tabs-swipable.js --compress --mangle --output tabs-swipable.min.js",
-    "minify-css": "cssnano tabs-swipable.css tabs-swipable.min.css"
+    "minify-js": "terser tabs-swipable.js --compress --mangle --output tabs-swipable.min.js",   // Minify JS
+    "minify-css": "npx cssnano tabs-swipable.css --output tabs-swipable.min.css"  // Use npx for CSS minification
   },
   "authors": [
     "Ben Slimene Souhail <souhailbenslimene@outlook.com>"

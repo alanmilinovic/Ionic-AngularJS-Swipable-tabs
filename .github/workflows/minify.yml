@@ -2,7 +2,7 @@ name: Minify JS and CSS
 
 on:
   push:
-    branches: [master]  # Runs on every push to the main branch
+    branches: [master]  # Runs on every push to the master branch
 
 jobs:
   minify:
@@ -15,21 +15,17 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # Or any Node version your project needs
-
-      - name: Install Terser and CSSNano
-        run: |
-          npm install terser cssnano -g
+          node-version: '16'  # Specify Node version
 
       - name: Minify JavaScript file
         run: |
           # Minify tabs-swipable.js and output as tabs-swipable.min.js
-          terser tabs-swipable.js --compress --mangle --output tabs-swipable.min.js
+          npx terser tabs-swipable.js --compress --mangle --output tabs-swipable.min.js
 
       - name: Minify CSS file
         run: |
           # Minify tabs-swipable.css and output as tabs-swipable.min.css
-          cssnano tabs-swipable.css tabs-swipable.min.css
+          npx cssnano tabs-swipable.css tabs-swipable.min.css
 
       - name: Commit and Push Minified Files
         run: |
@@ -37,4 +33,4 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add tabs-swipable.min.js tabs-swipable.min.css
           git commit -m 'Automated minification: Update tabs-swipable.min.js and tabs-swipable.min.css'
-          git push origin main
+          git push origin master

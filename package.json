@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "terser": "^5.7.1",
-    "cssnano": "^5.1.10"
+    "clean-css-cli": "^5.0.0"
   },
   "scripts": {
     "minify-js": "npx terser tabs-swipable.js --compress --mangle --output tabs-swipable.min.js",

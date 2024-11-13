@@ -22,15 +22,17 @@ jobs:
 
       # Step 3: Install dependencies
       - name: Install dependencies
-        run: npm install  # This installs terser and cssnano from package.json
+        run: |
+          npm install  # This installs all dependencies from package.json
+          npm install cssnano terser  # Explicitly install cssnano and terser
 
       # Step 4: Minify the JavaScript file
       - name: Minify JavaScript
-        run: npm run minify-js  # This runs the minify-js script
+        run: npx terser tabs-swipable.js --compress --mangle --output tabs-swipable.min.js
 
       # Step 5: Minify the CSS file
       - name: Minify CSS
-        run: npm run minify-css  # This runs the minify-css script
+        run: npx cssnano tabs-swipable.css --output tabs-swipable.min.css
 
       # Step 6: Commit and push minified files back to the repository
       - name: Commit and push minified files
